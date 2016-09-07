@@ -35,7 +35,7 @@ def cargar_elementos(items):
 	for i in range(len(items)):
 		items[i] = input("Ingrese elemento " + str(i+1) + ": ")
 
-def arreglos():
+def mostrar_arreglos():
 	i = 1
 	m = int(input("Indique cantidad de datos a ingresar: M="))
 	print("") #Salto de línea luego de ingresada cantidad
@@ -53,7 +53,7 @@ def arreglos():
 		print(str(i) + ")", elementos)
 		i += 1
 
-def combinaciones():
+def mostrar_combinaciones():
 	i = 1
 	m = int(input("Indique cantidad de datos a ingresar: M="))
 	print("") #Salto de línea luego de ingresada cantidad
@@ -71,10 +71,16 @@ def combinaciones():
 		print(str(i) + ")", elementos)
 		i += 1
 
-def mostrar_permutaciones(items):
-	return 0
+def permutaciones(n, i):
+    if i == len(n) - 1:
+        print(n)
+    else:
+        for j in range(i, len(n)):
+            n[i], n[j] = n[j], n[i]
+            permutaciones(n, i + 1)
+            n[i], n[j] = n[j], n[i] #Intercambiar denuevo para la próxima iteración
 
-def permutaciones():
+def mostrar_permutaciones():
 	i = 1
 	p = int(input("Indique cantidad de datos a ingresar: n="))
 	print("") #Salto de línea luego de ingresada cantidad
@@ -83,10 +89,7 @@ def permutaciones():
 	cargar_elementos(elementos)
 
 	print("\nCantidad de Permutaciones (Pn):", factorial(1, p), "\n") #P! - Prmutación: Arreglo de todos los elementos, tomados de a todos - importa el orden
-
-	for elementos in permutations(elementos, p):
-		print(str(i) + ")", elementos)
-		i += 1
+	permutaciones(elementos, 0)
 
 while opcion != 0:
 	limpiar()
@@ -99,17 +102,17 @@ while opcion != 0:
 		if opcion == 1:
 			limpiar()
 			print("Cálculo de Arreglos", autores)
-			arreglos()
+			mostrar_arreglos()
 			volver()
 		elif opcion == 2:
 			limpiar()
 			print("Cálculo de Combinaciones", autores)
-			combinaciones()
+			mostrar_combinaciones()
 			volver()
 		elif opcion == 3:
 			limpiar()
 			print("Cálculo de Permutaciones", autores)
-			permutaciones()
+			mostrar_permutaciones()
 			volver()
 
 	except:
