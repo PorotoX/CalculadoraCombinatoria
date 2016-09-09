@@ -56,7 +56,7 @@ def arreglos():
 		i += 1
 
 def combinaciones():
-	i = 1
+	i = 1	
 	m = int(input("Indique cantidad de datos a ingresar: M="))
 	print("") #Salto de línea luego de ingresada cantidad
 
