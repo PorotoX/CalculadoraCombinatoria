@@ -81,7 +81,6 @@ def permutaciones(n, i):
             n[i], n[j] = n[j], n[i] #Intercambiar denuevo para la próxima iteración
 
 def mostrar_permutaciones():
-	i = 1
 	p = int(input("Indique cantidad de datos a ingresar: n="))
 	print("") #Salto de línea luego de ingresada cantidad
 
